@@ -40,5 +40,5 @@ HeaderViewAdapter可以对已有的RecyclerView.Adapter进行包装，使其具�
 ```
 如果你的RecyclerView使用的是GridLayoutManager，那你需要使用框架里HeaderViewGridLayoutManager
 ```
-	recyclerView..setLayoutManager(new HeaderViewGridLayoutManager(this, 2, headerViewAdapter));
+	recyclerView.setLayoutManager(new HeaderViewGridLayoutManager(this, 2, headerViewAdapter));
 ```
