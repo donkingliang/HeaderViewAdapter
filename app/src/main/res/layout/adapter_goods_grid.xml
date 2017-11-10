@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/iv_goods"
+        android:layout_width="match_parent"
+        android:layout_height="177dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/goods_image" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_goods">
+
+        <TextView
+            android:id="@+id/tv_goods_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:singleLine="true"
+            android:text="有机西红柿番茄"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_goods_name"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:singleLine="true"
+            android:text="¥32.00"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_price"
+            android:layout_alignLeft="@+id/tv_goods_name"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/tv_price"
+            android:singleLine="true"
+            android:text="单位：500g/包"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
