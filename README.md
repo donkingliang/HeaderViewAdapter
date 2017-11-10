@@ -22,3 +22,23 @@ HeaderViewAdapter可以对已有的RecyclerView.Adapter进行包装，使其具�
 ```
 	compile 'com.github.donkingliang:HeaderViewAdapter:1.1.0'
 ```
+
+**2、使用** 
+```
+	//需要包装的adapter
+        LinearAdapter adapter = new LinearAdapter(this);
+	
+        //对adapter进行包装。
+        HeaderViewAdapter headerViewAdapter = new HeaderViewAdapter(adapter);
+	
+	//添加HeaderView和FooterView
+        headerViewAdapter.addHeaderView(headerView);
+        headerViewAdapter.addFooterView(footerView);
+	
+        //设置Adapter
+        recyclerView.setAdapter(headerViewAdapter);
+```
+如果你的RecyclerView使用的是GridLayoutManager，那你需要使用框架里HeaderViewGridLayoutManager
+```
+	recyclerView..setLayoutManager(new HeaderViewGridLayoutManager(this, 2, headerViewAdapter));
+```
