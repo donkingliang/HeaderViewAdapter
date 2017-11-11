@@ -65,6 +65,7 @@ public class HeaderViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public HeaderViewAdapter(RecyclerView.Adapter adapter) {
         this.mAdapter = adapter;
         if (mAdapter != null) {
+            //注册mAdapter的数据变化监听
             mAdapter.registerAdapterDataObserver(mObserver);
         }
     }
@@ -76,6 +77,7 @@ public class HeaderViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         if (view != null) {
             return new ViewHolder(view);
         } else {
+            //交由mAdapter处理。
             return mAdapter.onCreateViewHolder(parent, viewType);
         }
     }
@@ -87,7 +89,9 @@ public class HeaderViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         if (isHeader(position) || isFooter(position)) {
             return;
         }
+
         //将列表实际的position调整成mAdapter对应的position。
+        //交由mAdapter处理。
         int adjPosition = position - getHeadersCount();
         mAdapter.onBindViewHolder(holder, adjPosition);
     }
@@ -111,6 +115,7 @@ public class HeaderViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
 
         //将列表实际的position调整成mAdapter对应的position。
+        //交由mAdapter处理。
         int adjPosition = position - getHeadersCount();
         return mAdapter.getItemViewType(adjPosition);
     }
@@ -231,7 +236,10 @@ public class HeaderViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private int generateUniqueViewType() {
         int count = getItemCount();
         while (true) {
+            //生成一个随机数。
             int viewType = (int) (Math.random() * Integer.MAX_VALUE) + 1;
+
+            //判断该viewType是否已使用。
             boolean isExist = false;
             for (int i = 0; i < count; i++) {
                 if (viewType == getItemViewType(i)) {
@@ -240,6 +248,7 @@ public class HeaderViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 }
             }
 
+            //判断该viewType还没被使用，则返回。否则进行下一次循环，重新生成随机数。
             if (!isExist) {
                 return viewType;
             }
