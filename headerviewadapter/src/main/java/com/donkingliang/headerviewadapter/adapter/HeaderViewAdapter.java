@@ -1,4 +1,4 @@
-package com.donkingliang.headerviewadapter;
+package com.donkingliang.headerviewadapter.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -118,6 +118,29 @@ public class HeaderViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         //交由mAdapter处理。
         int adjPosition = position - getHeadersCount();
         return mAdapter.getItemViewType(adjPosition);
+    }
+
+    /**
+     * 设置被包装的adapter。
+     *
+     * @param adapter
+     */
+    public void setAdapter(RecyclerView.Adapter adapter) {
+        if (adapter instanceof HeaderViewAdapter) {
+            //被包装的adapter不能是HeaderViewAdapter。
+            throw new IllegalArgumentException("Cannot wrap a HeaderViewAdapter");
+        }
+        this.mAdapter = adapter;
+        notifyDataSetChanged();
+    }
+
+    /**
+     * 获取被包装的adapter
+     *
+     * @return
+     */
+    public RecyclerView.Adapter getAdapter() {
+        return mAdapter;
     }
 
     /**
@@ -327,12 +350,16 @@ public class HeaderViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-        mAdapter.onAttachedToRecyclerView(recyclerView);
+        if(mAdapter != null) {
+            mAdapter.onAttachedToRecyclerView(recyclerView);
+        }
     }
 
     @Override
     public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
-        mAdapter.onDetachedFromRecyclerView(recyclerView);
+        if(mAdapter != null) {
+            mAdapter.onDetachedFromRecyclerView(recyclerView);
+        }
     }
 
     @Override

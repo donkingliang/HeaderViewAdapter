@@ -2,26 +2,33 @@ package com.donkingliang.headerviewadapterdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.donkingliang.headerviewadapter.HeaderViewAdapter;
-import com.donkingliang.headerviewadapter.HeaderViewGridLayoutManager;
+import com.donkingliang.headerviewadapter.adapter.HeaderViewAdapter;
+import com.donkingliang.headerviewadapter.layoutmanager.HeaderViewGridLayoutManager;
+import com.donkingliang.headerviewadapter.view.HeaderRecyclerView;
+import com.donkingliang.headerviewadapterdemo.adapter.GridAdapter;
+import com.donkingliang.headerviewadapterdemo.adapter.LinearAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView rvList;
+    //    private RecyclerView rvList;
+    private HeaderRecyclerView rvList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rvList = (RecyclerView) findViewById(R.id.rv_list);
-        showLinearList();
+//        rvList = (RecyclerView) findViewById(R.id.rv_list);
+//        showLinearList();
 //        showGridList();
+        rvList = (HeaderRecyclerView) findViewById(R.id.rv_list);
+        showHeaderRecyclerView();
     }
 
     private void showLinearList() {
@@ -48,5 +55,17 @@ public class MainActivity extends AppCompatActivity {
         headerViewAdapter.addHeaderView(hv2);
         headerViewAdapter.addFooterView(fv);
         rvList.setAdapter(headerViewAdapter);
+    }
+
+    private void showHeaderRecyclerView() {
+        GridAdapter adapter = new GridAdapter(this);
+        rvList.setLayoutManager(new GridLayoutManager(this, 2));
+        rvList.setAdapter(adapter);
+        View hv1 = LayoutInflater.from(this).inflate(R.layout.layout_header, rvList, false);
+        View hv2 = LayoutInflater.from(this).inflate(R.layout.layout_header_view, rvList, false);
+        View fv = LayoutInflater.from(this).inflate(R.layout.layout_footer_view, rvList, false);
+        rvList.addHeaderView(hv1);
+        rvList.addHeaderView(hv2);
+        rvList.addFooterView(fv);
     }
 }
