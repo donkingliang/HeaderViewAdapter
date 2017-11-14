@@ -14,6 +14,11 @@ import com.donkingliang.headerviewadapter.view.HeaderRecyclerView;
 import com.donkingliang.headerviewadapterdemo.adapter.GridAdapter;
 import com.donkingliang.headerviewadapterdemo.adapter.LinearAdapter;
 
+/**
+ * Depiction:
+ * Author:donkingliang
+ * Dat:2017/11/10
+ */
 public class MainActivity extends AppCompatActivity {
 
     //    private RecyclerView rvList;

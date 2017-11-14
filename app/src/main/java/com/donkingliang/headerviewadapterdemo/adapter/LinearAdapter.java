@@ -11,7 +11,7 @@ import com.donkingliang.headerviewadapterdemo.R;
 
 /**
  * Depiction:
- * Author:lry
+ * Author:donkingliang
  * Dat:2017/11/10
  */
 public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.ViewHolder> {

@@ -11,8 +11,11 @@ import com.donkingliang.headerviewadapter.adapter.HeaderViewAdapter;
 import com.donkingliang.headerviewadapter.layoutmanager.HeaderViewGridLayoutManager;
 
 /**
- * Depiction:
- * Author:lry
+ * Depiction: HeaderRecyclerView包装了对{@link HeaderViewAdapter}的所有操作，
+ * 让使用者可以直接操作HeaderRecyclerView来给列表添加头部和尾部，而不需要跟HeaderViewAdapter打交道。
+ * 这样的使用体验就跟{@link android.widget.ListView}的添加头部和尾部一样了。
+ * <p>
+ * Author:donkingliang  QQ:1043214265
  * Dat:2017/11/13
  */
 public class HeaderRecyclerView extends RecyclerView {
