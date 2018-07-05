@@ -63,7 +63,7 @@ public class HeaderViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     };
 
     public HeaderViewAdapter(RecyclerView.Adapter adapter) {
-        this.mAdapter = adapter;
+        mAdapter = adapter;
         if (mAdapter != null) {
             //注册mAdapter的数据变化监听
             mAdapter.registerAdapterDataObserver(mObserver);
@@ -121,7 +121,7 @@ public class HeaderViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
     /**
-     * 设置被包装的adapter。
+     * 设置被包装的adapter。同一个adapter对象不能设置多次。
      *
      * @param adapter
      */
@@ -130,7 +130,11 @@ public class HeaderViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             //被包装的adapter不能是HeaderViewAdapter。
             throw new IllegalArgumentException("Cannot wrap a HeaderViewAdapter");
         }
-        this.mAdapter = adapter;
+        mAdapter = adapter;
+        if (mAdapter != null) {
+            //注册mAdapter的数据变化监听
+            mAdapter.registerAdapterDataObserver(mObserver);
+        }
         notifyDataSetChanged();
     }
 
