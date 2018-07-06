@@ -20,7 +20,7 @@ HeaderViewAdapter可以对已有的RecyclerView.Adapter进行包装，使其具�
 在Module的build.gradle在添加以下代码
 
 ```
-	compile 'com.github.donkingliang:HeaderViewAdapter:1.2.1'
+	compile 'com.github.donkingliang:HeaderViewAdapter:1.2.2'
 ```
 
 **2、使用** 
