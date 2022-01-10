@@ -1,7 +1,7 @@
 package com.donkingliang.headerviewadapter.layoutmanager;
 
 import android.content.Context;
-import android.support.v7.widget.GridLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import android.util.AttributeSet;
 
 import com.donkingliang.headerviewadapter.adapter.HeaderViewAdapter;
